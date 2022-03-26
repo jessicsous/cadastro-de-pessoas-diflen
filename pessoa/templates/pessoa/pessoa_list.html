@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Data de nascimento</th>
+            <th>Ativa</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pessoa in object_list %}
+        <tr>
+            <td>{{ pessoa.nome_completo }}</td>
+            <td>{{ pessoa.data_nascimento|date:"SHORT_DATE_FORMAT" }}</td>
+            <td>
+            {% if pessoa.ativa %}
+            Sim
+            {% else %}
+            Não
+            {% endif %}    
+            </td>
+        </tr>    
+        {% endfor %}
+    </tbody>
+</table>  
+
+{% endblock content %}
+        
